@@ -1,0 +1,17 @@
+.advertisment-header {
+    background-color: #055fe8;
+}
+
+.title {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.update-advertisment-log {
+    display: flex;
+    background-color: #c2c3c4;
+}
+
+.fields {
+    margin: 10px;
+}

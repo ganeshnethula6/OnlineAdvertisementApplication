@@ -1,0 +1,50 @@
+<div class="client-dashboard">
+    <mat-card class="mat-client-dashboard">
+        <mat-card class="client-header">
+            <mat-card-title class="title">
+                Client Dashboard
+            </mat-card-title>
+        </mat-card>
+
+
+        <div class="menu-btn-group">
+            <button color="primary" style="margin-right: 10px;" mat-icon-button (click)="openProfile()" matTooltip="profile" class="profile-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>person</mat-icon>
+            </button>
+            <button class="menu-btn-group-button" mat-raised-button color="warn" [matMenuTriggerFor]="menu">
+            create new
+            <i class='fas fa-caret-down'></i>
+          </button>
+            <mat-menu #menu='matMenu'>
+                <button mat-menu-item (click)="createNewPost()"> Create Post</button>
+            </mat-menu>
+        </div>
+        <mat-tab-group mat-align-tabs="start" disabledRipple='true' animationDuration='0ms' backgroundColor="primary" class="mat-tab-group">
+            <mat-tab class="mat-tab">
+                <ng-template mat-tab-label>client records</ng-template>
+
+                <mat-card class="client-records">
+                    <ag-grid-angular class="ag-theme-alpine" [rowData]="rowData " [columnDefs]="columnDefs" rowSelection="single" [pagination]="true" [paginationPageSize]="5" (gridReady)="onGridReady($event)" [frameworkComponents]="frameworkComponents"></ag-grid-angular>
+                </mat-card>
+            </mat-tab>
+            <mat-tab class="mat-tab">
+                <ng-template mat-tab-label>view posts</ng-template>
+
+                <mat-card class="client-notifications">
+                    <div>
+                        <app-user-dashboard></app-user-dashboard>
+                    </div>
+
+                </mat-card>
+            </mat-tab>
+            <!-- <mat-tab class="mat-tab">
+                <ng-template mat-tab-label>Notifications</ng-template>
+
+                <mat-card class="client-history">
+                    This is the notification section...
+                </mat-card>
+            </mat-tab> -->
+
+        </mat-tab-group>
+    </mat-card>
+</div>

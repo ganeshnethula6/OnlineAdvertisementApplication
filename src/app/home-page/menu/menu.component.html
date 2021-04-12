@@ -1,0 +1,60 @@
+<ng-container *ngIf="!_user">
+    <mat-toolbar color="primary" class="example-menu">
+        <!-- <button mat-icon-button matTooltip=" menu button" class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button> -->
+        <button mat-icon-button matTooltip="menu" [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+        <mat-menu #menu='matMenu'>
+
+            <button mat-menu-item (click)="openMenu(1)" disabled>
+        <mat-icon>settings</mat-icon>
+        <span>settings</span>
+      </button>
+            <button mat-menu-item [matMenuTriggerFor]="digital_info"><i class="fas fa-address-card"
+          style="font-size: 20px; margin-right: 10px;"></i>
+        <span>Digital Info</span></button>
+            <button mat-menu-item (click)="openMenu(2)">
+        <mat-icon>info</mat-icon>
+        <span>about us</span>
+      </button>
+        </mat-menu>
+        <mat-menu #digital_info="matMenu">
+            <a href="https://www.facebook.com/Online-Advertising-104452431741785" target="_blank" rel="noopener noreferrer"><button mat-menu-item><i class="fab fa-facebook-square"
+            style="font-size: 20px; margin-right:10px;color: blue; "></i><span>facebook</span></button></a>
+            <a href="https://www.instagram.com/ganeshnethula/" target="_blank" rel="noopener noreferrer"><button
+          mat-menu-item><i class="fab fa-instagram-square"
+            style="font-size: 20px; margin-right:10px;color:palevioletred "></i><span>Instagram</span></button></a>
+            <a href="https://twitter.com/GaneshNethula" target="_blank"><button mat-menu-item><i class="fab fa-twitter-square"
+            style="font-size: 20px; margin-right:10px;color: rgb(0, 234, 255); "></i><span>Twitter</span></button></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"><button mat-menu-item><i class="fab fa-youtube-square"
+            style="font-size: 20px; margin-right:10px;color: rgb(255, 0, 0); "></i><span>Youtube</span></button></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"> <button mat-menu-item><i class="fab fa-telegram"
+            style="font-size: 20px; margin-right:10px;color: rgb(74, 162, 245); "></i><span>Telegram</span></button></a>
+
+        </mat-menu>
+        <span>Online Advertisement Website!</span>
+        <span class="example-spacer"></span>
+        <button (click)="openSignUp()" matTooltip="Sign Up" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>person_add</mat-icon>
+
+    </button>
+        <button (click)="openSignIn()" matTooltip=" login" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>login</mat-icon>
+    </button>
+        <button matTooltip="logout" (click)="logOut()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>logout</mat-icon>
+    </button>
+        <!-- <button mat-icon-button *ngIf="no_user" matTooltip="settings" class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>settings</mat-icon>
+  </button>
+
+         -->
+    </mat-toolbar>
+
+    <!-- <mat-sidenav-container class="example-container">
+        <mat-sidenav #sidenav mode="over">
+        </mat-sidenav>
+    </mat-sidenav-container> -->
+</ng-container>

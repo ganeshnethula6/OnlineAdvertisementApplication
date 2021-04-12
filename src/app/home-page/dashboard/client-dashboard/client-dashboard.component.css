@@ -1,0 +1,25 @@
+.menu-btn-group {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu-btn-group-button {
+    height: 20%;
+    width: 10%;
+    border: 0ch;
+}
+
+.mat-tab-group {
+    color: blue;
+    padding: 5px;
+}
+
+.ag-theme-alpine {
+    width: 100%;
+    height: 300px;
+}
+
+.profile-icon {
+    display: flex;
+    justify-content: flex-end;
+}

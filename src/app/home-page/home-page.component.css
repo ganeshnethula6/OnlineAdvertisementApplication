@@ -1,0 +1,47 @@
+/* .home-container {
+    height: 400px;
+    margin-top: 50px;
+    text-align: center;
+    align-items: center;
+}
+
+.image-container {
+    background-color: #eee;
+    background-image: url("https://dsim.in/blog/wp-content/uploads/2017/12/NativeAd-957x560.png");
+    height: 100%;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: #eee;
+}
+
+.header-title {
+    color: rgb(255, 0, 0);
+    font-size: 50px;
+    align-items: center;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    text-shadow: 10px;
+    shape-outside: -moz-radial-gradient();
+}
+
+.header-subtitle {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: darkslateblue;
+} */
+
+.carousel-inner img {
+    width: 100%;
+}

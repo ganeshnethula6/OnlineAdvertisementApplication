@@ -1,0 +1,119 @@
+<mat-card class="advertisement-dialog-container">
+    <mat-card class="advertisment-header">
+        <mat-card-title class="title">
+            New Advertisment/Promotion
+        </mat-card-title>
+
+    </mat-card>
+    <!-- <mat-card class="advertisment-header" *ngIf="updateAd">
+        <mat-card-title class="title">
+            Advertisment/Promotion
+        </mat-card-title>
+    </mat-card>
+    <mat-card class="update-advertisment-log" *ngIf="updateAd">
+        <div class="fields">
+            <p>Id</p>
+            <p class="fields-data">{{updateModel.promotionId}}</p>
+        </div>
+       <div class="fields">
+            <P>Created Date:</P>
+            <p class="fields-data">dase</p>
+        </div>
+        <div class="fields">
+            <P>Updated Date:</P>
+            <p class="fields-data">125</p>
+        </div> 
+    </mat-card> -->
+
+    <mat-card class="form-container">
+        <form [formGroup]="clientAdvertisementForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Promotion/Advertisement Type</mat-label>
+                <mat-select formControlName="addType" [(ngModel)]="model.addType">
+                    <mat-option [value]="addtype" *ngFor="let  addtype of addTypes">
+                        {{addtype}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Promotion Title</mat-label>
+                <input matInput id='addTitle' width="300px" name="addTitle" formControlName="addTitle" [(ngModel)]="model.addTitle">
+                <mat-hint>not contain special characters</mat-hint>
+                <mat-error *ngIf="addTitle?.hasError('required')"> required</mat-error>
+                <mat-error *ngIf="addTitle?.hasError('pattern')"> remove special characters and numbers</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Promotion Tag</mat-label>
+                <input matInput id='addTag' name="addTag" formControlName="addTag" [(ngModel)]="model.addTag">
+                <mat-hint>not contain special characters</mat-hint>
+                <mat-error *ngIf="addTag?.hasError('required')"> required</mat-error>
+                <mat-error *ngIf="addTag?.hasError('pattern')"> remove special characters and numbers</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Descriptiom</mat-label>
+                <textarea matInput id='addDesc' name="addDesc" formControlName="addDesc" [(ngModel)]="model.addDesc"></textarea>
+                <mat-hint>enter the discription</mat-hint>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <ngx-mat-file-input (multiple)="true" accept="accept" color="primary">
+                    <mat-icon ngxMatFileInputIcon #file (ngModelChange)="onFileChanged(file)">folder</mat-icon>
+                </ngx-mat-file-input>
+            </mat-form-field>
+            <mat-dialog-actions align="end">
+                <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+                <button mat-raised-button color="primary" [mat-dialog-close] type="submit" [disabled]="!clientAdvertisementForm">Create</button>
+            </mat-dialog-actions>
+        </form>
+
+    </mat-card>
+
+    <!-- <mat-card class="form-container" *ngIf="updateAd">
+        <form [formGroup]="clientAdvertisementForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="example-full-width">
+                <mat-label>Promotion/Advertisement Type</mat-label>
+                <mat-select formControlName="addType" [(ngModel)]="updateModel.addType">
+                    <mat-option [value]="addtype" *ngFor="let  addtype of addTypes">
+                        {{addtype}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Promotion Title</mat-label>
+                <input matInput id='addTitle' width="300px" name="addTitle" formControlName="addTitle" [(ngModel)]="updateModel.addTitle">
+                <mat-hint>not contain special characters</mat-hint>
+                <mat-error *ngIf="addTitle?.hasError('required')"> required</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Promotion Tag</mat-label>
+                <input matInput id='addTag' name="addTag" formControlName="addTag" [(ngModel)]="updateModel.addTag">
+                <mat-hint>not contain special characters</mat-hint>
+                <mat-error *ngIf="addTag?.hasError('required')"> required</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Descriptiom</mat-label>
+                <textarea matInput id='addDesc' name="addDesc" formControlName="addDesc" [(ngModel)]="updateModel.addDesc"></textarea>
+                <mat-hint>enter the discription</mat-hint>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <ngx-mat-file-input (multiple)="true" accept="accept" color="primary">
+                    <mat-icon ngxMatFileInputIcon #file (ngModelChange)="onFileChanged(file)">folder</mat-icon>
+                </ngx-mat-file-input>
+            </mat-form-field>
+            <mat-dialog-actions align="end">
+                <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+                <button mat-raised-button color="primary" [mat-dialog-close] type="submit" [disabled]="!clientAdvertisementForm">Update</button>
+            </mat-dialog-actions>
+        </form>
+
+    </mat-card> -->
+
+
+</mat-card>

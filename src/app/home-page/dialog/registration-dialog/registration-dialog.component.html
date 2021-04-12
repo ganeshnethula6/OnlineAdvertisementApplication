@@ -1,0 +1,289 @@
+<mat-card class="registration-dialog">
+    <mat-card class="header">
+        <mat-card-title class="title">
+            New Registration
+            <i class="fas fa-times" (click)="closeDialog()" style="margin-left: 250px;cursor: pointer;justify-content: end;"></i>
+        </mat-card-title>
+    </mat-card>
+    <form class="example-form" [formGroup]="userRegistrationForm">
+        <mat-vertical-stepper>
+            <mat-step label="User Details">
+                <mat-divider></mat-divider>
+                <div class="step">
+
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>First name</mat-label>
+                        <input matInput id='firstName' name="firstName" maxlength="16" formControlName="firstName" [(ngModel)]="model.firstName">
+                        <mat-hint>not contain special characters</mat-hint>
+                        <mat-error *ngIf="firstName?.hasError('required')"> required</mat-error>
+                        <mat-error *ngIf="firstName?.hasError('pattern')"> remove special characters and numbers</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="enter the last name" maxlength="16" id='lastName' name='lastName' #lastName formControlName="lastName" [(ngModel)]="model.lastName">
+                        <mat-hint>optional</mat-hint>
+                    </mat-form-field>
+                    <br>
+                    <div class="gender-group">
+                        <label>Gender:</label>
+                        <mat-radio-group color="primary" class="example-radio-group" id="gender" name="gender" formControlName="gender" [(ngModel)]="model.gender">
+                            <mat-radio-button class="gender-field " *ngFor="let gender of genders" [value]="gender">
+                                {{gender}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="date" placeholder="Date of birth" id="dob" name="dob" formControlName="dob" [(ngModel)]="model.dob">
+                    </mat-form-field>
+                    <span>
+            <mat-form-field class="example-full-width">
+              <mat-label>Phone Number</mat-label>
+              <input matInput type="text" placeholder="Ex 9999999999" maxlength="10" formControlName="mobileNumber"
+                [(ngModel)]="model.mobileNumber">
+              <mat-hint> Enter only numbers</mat-hint>
+            </mat-form-field>
+          </span>
+                    <button mat-icon-button color="primary">
+            <mat-icon>
+              add_photo_alternate
+            </mat-icon>Profile Pic
+          </button>
+                    <span>
+            <input type="file" class="form-control-file border-blue" name="" id="">
+          </span>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Role Type</mat-label>
+                        <mat-select formControlName="roleType" [(ngModel)]="model.roleType">
+                            <mat-option [value]="role.roleValue" *ngFor="let role of RoleType">
+                                {{role.roleName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <div align="end">
+                        <button mat-button matStepperNext class="navigate-next">Next</button>
+                    </div>
+
+                </div>
+
+                <mat-divider></mat-divider>
+            </mat-step>
+            <mat-step label="User Address">
+                <mat-form-field class="example-full-width">
+                    <mat-label>City</mat-label>
+                    <input matInput placeholder="enter city name" formControlName="userCity" [(ngModel)]="userAddress.city" maxlength="50" id='city' name='city' #city>
+                    <mat-hint>Enter City Name</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>State</mat-label>
+                    <input matInput placeholder="enter State name" formControlName="userState" [(ngModel)]="userAddress.state" maxlength="50" id='state' name='state' #state>
+                    <mat-hint>Enter State Name</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Country</mat-label>
+                    <input matInput placeholder="enter country name" formControlName="userCountry" [(ngModel)]="userAddress.country" maxlength="50" id='country' name='country' #country>
+                    <mat-hint>Enter Country Name</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Pincode</mat-label>
+                    <input matInput placeholder="enter pincode" formControlName="userPincode" [(ngModel)]="userAddress.pincode" maxlength="5" id='pincode' name='pincode' #pincode>
+                    <mat-hint>enter numbers only</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" style="width:400px !important">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput placeholder="H-NO:- ,Street, Landmark...." cols="100px" formControlName="userAddresDesc" [(ngModel)]="userAddress.addressDesc" maxlength="205" id='pincode' name='pincode' #pincode>
+                </textarea>
+
+                    <mat-hint>enter address</mat-hint>
+                </mat-form-field>
+                <div align="end">
+                    <button mat-stroked-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext class="navigate-next">Next</button>
+                </div>
+            </mat-step>
+
+
+            <mat-step label="Shop Details" *ngIf="!roleType">
+                <mat-form-field>
+                    <mat-label>Shop Id</mat-label>
+                    <input matInput placeholder="enter shop name" formControlName="shopId" [(ngModel)]="model.shopId" maxlength="50" id='shopId' name='shopId' #shopId>
+                    <mat-hint>shop Id</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Shop Name</mat-label>
+                    <input matInput placeholder="enter shop name" formControlName="shopName" [(ngModel)]="model.shopName" maxlength="50" id='shopName' name='shopName' #shopName>
+                    <mat-hint>Shop Name</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Shop Tag</mat-label>
+                    <input matInput placeholder="enter shop Tag" formControlName="shopTag" [(ngModel)]="model.shopTag" maxlength="50" id='shopTag' name='shopTag' #shopTag>
+                    <mat-hint>optional</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Shop Category</mat-label>
+                    <input matInput placeholder="enter shop category" formControlName="shopCategory" [(ngModel)]="model.shopCategory" maxlength="50" id='shopCategory' name='shopCategory' #shopCategory>
+                    <mat-hint>optional</mat-hint>
+                </mat-form-field>
+                <button mat-icon-button color="primary">
+        <mat-icon>
+          add_photo_alternate
+        </mat-icon>Shop Logo
+      </button><span><input type="file" class="form-control-file border-blue" name="" id=""></span>
+
+                <div align="end">
+                    <button mat-stroked-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext class="navigate-next">Next</button>
+                </div>
+            </mat-step>
+
+
+
+            <mat-step label="Shop Address" *ngIf="!roleType">
+                <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <input matInput placeholder="enter city name" formControlName="shopCity" [(ngModel)]="shopAddress.city" maxlength="50" id='city' name='city' #city>
+                    <mat-hint>ENter City Name</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>State</mat-label>
+                    <input matInput placeholder="enter State name" formControlName="shopState" [(ngModel)]="shopAddress.state" maxlength="50" id='state' name='state' #state>
+                    <mat-hint>State Name</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Country</mat-label>
+                    <input matInput placeholder="enter country name" formControlName="shopCountry" [(ngModel)]="shopAddress.country" maxlength="50" id='country' name='country' #country>
+                    <mat-hint>Counry</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Pincode</mat-label>
+                    <input matInput placeholder="enter pincode" formControlName="shopPincode" [(ngModel)]="shopAddress.pincode" maxlength="5" id='pincode' name='pincode' #pincode>
+                    <mat-hint>enter numbers only</mat-hint>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" style="width:400px !important">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput placeholder="H-NO:- ,Street, Landmark...." cols="100px" formControlName="shopAddressDesc" [(ngModel)]="shopAddress.addressDesc" maxlength="205" id='pincode' name='pincode' #pincode>
+          </textarea>
+
+                    <mat-hint>enter address</mat-hint>
+                </mat-form-field>
+                <div align="end">
+                    <button mat-stroked-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext class="navigate-next">Next</button>
+                </div>
+            </mat-step>
+            <mat-step label="Enter Credentials">
+                <tr>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="email" placeholder="Email" maxlength="25" formControlName="emailId" [(ngModel)]="model.emailId">
+                    </mat-form-field>
+                </tr>
+                <tr>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="password" maxlength="16" placeholder="enter password" formControlName="password" [(ngModel)]="model.password">
+                    </mat-form-field>
+                </tr>
+                <tr>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="password" maxlength="16" placeholder="confirm password" formControlName="confirmPassword" [errorStateMatcher]="matcher" [(ngModel)]="confirmpsw">
+                    </mat-form-field>
+                    <mat-error *ngIf="confirmPassword?.hasError('notSame')">
+                        Passwords do not match
+                    </mat-error>
+                    <mat-dialog-actions align="end">
+                        <button mat-stroked-button [mat-dialog-close] color="warn">close</button>
+                        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="!userRegistrationForm.valid">Register</button>
+                    </mat-dialog-actions>
+            </mat-step>
+        </mat-vertical-stepper>
+    </form>
+    <!-- <form class="example-form" [formGroup]="userRegistrationForm" (ngSubmit)="onSubmit()">
+        <mat-card-content>
+            <table class="example-full-width" cellspacing="5">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>First name</mat-label>
+                            <input matInput id='firstName' name="firstName" maxlength="16" formControlName="firstName" [(ngModel)]="model.firstName">
+                            <mat-hint>not contain special characters</mat-hint>
+                            <mat-error *ngIf="firstName?.hasError('required')"> required</mat-error>
+                            <mat-error *ngIf="firstName?.hasError('pattern')"> remove special characters and numbers</mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput placeholder="enter the last name" maxlength="16" id='lastName' name='lastName' #lastName formControlName="lastName" [(ngModel)]="model.lastName">
+                            <mat-hint>optional</mat-hint>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <mat-form-field class="example-full-width" *ngIf="roleType">
+                        <mat-label>Role Type</mat-label>
+                        <input matInput style="color: black  !important;" placeholder="roleType" maxlength="16" formControlName="roleType" [(ngModel)]="model.roleType">
+                        <mat-hint>role Type</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" *ngIf="!roleType">
+                        <mat-label>Role Type</mat-label>
+                        <mat-select formControlName="roleType" [(ngModel)]="model.roleType">
+                            <mat-option [value]="role.roleValue" *ngFor="let role of RoleType">
+                                {{role.roleName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                </tr>
+                <tr>
+                    <mat-radio-group class="example-radio-group" id="gender" name="gender" formControlName="gender" [(ngModel)]="model.gender">
+                        <mat-radio-button class="gender-field " *ngFor="let gender of genders" [value]="gender">
+                            {{gender}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+
+                    <mat-error *ngIf="gender?.hasError('required')"> required</mat-error>
+                </tr>
+                <tr>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="date" placeholder="Date of birth" id="dob" name="dob" formControlName="dob" [(ngModel)]="model.dob">
+                    </mat-form-field>
+                </tr>
+                <tr>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="text" placeholder="Ex 9999999999" maxlength="10" formControlName="mobileNumber" [(ngModel)]="model.mobileNumber">
+                        <mat-hint> Enter only numbers</mat-hint>
+                    </mat-form-field>
+                </tr>
+                <tr>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="email" placeholder="Email" maxlength="25" formControlName="emailId" [(ngModel)]="model.emailId">
+                    </mat-form-field>
+                </tr>
+                <tr>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="password" maxlength="16" placeholder="enter password" formControlName="password" [(ngModel)]="model.password">
+                    </mat-form-field>
+                </tr>
+                <tr>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="password" maxlength="16" placeholder="confirm password" formControlName="confirmPassword" [errorStateMatcher]="matcher" [(ngModel)]="confirmpsw">
+                    </mat-form-field>
+                    <mat-error *ngIf="confirmPassword?.hasError('notSame')">
+                        Passwords do not match
+                    </mat-error>
+                </tr>
+            </table>
+        </mat-card-content>
+        <mat-dialog-actions align="end">
+            <button mat-stroked-button [mat-dialog-close] color="warn">close</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!userRegistrationForm.valid">Register</button>
+
+        </mat-dialog-actions>
+
+    </form> -->
+
+</mat-card>
+<div class="text-danger danger" align=end *ngIf="roleType">
+    <p (click)="existingUser()">Existing user? login here</p>
+</div>

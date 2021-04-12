@@ -1,0 +1,65 @@
+<!-- <div class="container">
+    <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+        <mat-card class="box">
+            <mat-card-header class="header">
+                <mat-card-title>Sign In</mat-card-title>
+            </mat-card-header>
+
+            <form class="example-form" [formGroup]="userLoginForm" (ngSubmit)="onSubmit()">
+                <mat-card-content>
+                    <table class="example-full-width" cellspacing="0">
+                        <tr>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="email id" formControlName="emailId" [(ngModel)]="model.emailId">
+                            </mat-form-field>
+
+                        </tr>
+                        <tr>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Password" formControlName="password" [(ngModel)]="model.password">
+                            </mat-form-field>
+                        </tr>
+                    </table>
+                </mat-card-content>
+                <button mat-raised-button color="warn" class="btn-block" [disabled]="!userLoginForm.valid">Sign-in
+                </button>
+                <div class="text-danger danger" align=end>
+                    <p (click)="newRegister()">New User? Register here</p>
+                </div>
+
+            </form>
+        </mat-card>
+    </div>
+</div> -->
+<mat-card class="image-container">
+    <mat-card class="sign-container">
+        <mat-card-header class="header">
+            <mat-card-title>Sign In</mat-card-title>
+        </mat-card-header>
+        <form class="example-form" [formGroup]="userLoginForm" (ngSubmit)="onSubmit()">
+            <mat-card-content>
+                <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="email id" formControlName="emailId" [(ngModel)]="model.emailId">
+                        </mat-form-field>
+
+                    </tr>
+                    <tr>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Password" type="password" formControlName="password" [(ngModel)]="model.password">
+                        </mat-form-field>
+                    </tr>
+                </table>
+            </mat-card-content>
+            <button mat-raised-button color="warn" [disabled]="!userLoginForm.valid">Sign-in
+    </button>
+            <div class="text-danger danger" align=end>
+                <p (click)="newRegister()">New User? Register here</p>
+            </div>
+
+        </form>
+    </mat-card>
+
+</mat-card>

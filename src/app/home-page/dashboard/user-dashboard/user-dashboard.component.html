@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-sm bg-dark  navbar-dark fixed-top justify-content-start">
+    <!-- Brand -->
+    <a class="navbar-brand" style="color: white;">Hi {{userDetails.firstName}} Welcome to Viewer Page!</a>
+    <span class="example-spacer"></span>
+    <!-- Links -->
+    <ul class="navbar-nav ">
+        <li class="nav-item">
+            <span class="example-spacer"></span>
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+        Category
+      </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="openByCategory(category)" *ngFor="let category of promotionCategories">{{category}}</a>
+
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" matTooltip="profile" (click)="openProfile()"><i class="fas fa-user-alt"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" matTooltip="sign out" style="color: white;" (click)="logOut()"><i
+          class="fas fa-sign-out-alt"></i></a>
+        </li>
+    </ul>
+</nav>
+
+
+<mat-divider></mat-divider>
+<div class="row">
+    <div class="column side">
+
+
+    </div>
+    <div class="column middle">
+        <mat-card class="example-card" *ngFor="let promotionDetail of promotionDetails; index as i">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{promotionDetail.addTitle}}</mat-card-title>
+                <mat-card-subtitle class="subtitles"><span class="header-subtitle">Post Tag:</span>{{promotionDetail.addTag}} ({{promotionDetail.addType}}) </mat-card-subtitle>
+                <mat-card-subtitle class="subtitles"><span class="header-subtitle">Created date:</span> {{promotionDetail.createdDate}}
+                </mat-card-subtitle>
+                <mat-card-subtitle class="subtitles"><span class="header-subtitle">Created By:</span> {{promotionDetail.createdBy}}
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <img mat-card-image [src]="promotionDetail.fileDetail[0].retrivedImage" alt="Photo of a Shiba Inu">
+            <mat-divider></mat-divider>
+            <mat-card-content>
+
+                <p>{{promotionDetail.addDesc}}</p>
+
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-actions>
+                <button mat-mini-fab disableRipple="true" [color]="addLikeSelected&&(index==i)?'warn' : 'primary'" (click)="addLike(i)">
+          <mat-icon>thumb_up</mat-icon>
+        </button>
+                <button mat-mini-fab disableRipple [color]="addCommentSelected&&(index==i)?'warn' : 'primary'" data-toggle="collapse" data-target="#comment" (click)="addComment(i)">
+          <mat-icon>comment</mat-icon>
+        </button>
+            </mat-card-actions>
+            <mat-from-field id="comment" *ngIf="(index==i)" class="collapse" [formGroup]="commentFormGroup">
+                <p class="show-comments-link" (click)="showComments(promotionDetail.promotionId,i)">show comments</p>
+                <div *ngIf="showCommetSelected &&(index==i)">
+                    <div class="media border p-2" *ngFor="let comment of comments">
+
+                        <i class="fas fa-user-alt" style="color: darkblue;"></i>
+                        <div class="media-body">
+                            <h4>{{comment.commentBy}}<small>({{comment.createdDate}})</small></h4><br>
+                            <p>{{comment.comment}}</p><br>
+                        </div>
+
+                    </div>
+                </div>
+                <textarea type="text" formControlName="commentValidator" [(ngModel)]="commentModel.comment" cols="70%">
+                </textarea><br>
+                <button mat-flat-button color="primary" [disabled]="!commentFormGroup.valid" (click)="postComment(promotionDetail.promotionId)">Post</button>
+                <button mat-stroked-button color="primary" data-toggle="collapse" data-target="#comment" (click)="addComment(i)">close</button>
+            </mat-from-field>
+
+        </mat-card>
+    </div>
+    <div class="column side">
+        <mat-card class="right-side-column" style="margin-right: 20px;">
+            <h4>Recents Post:</h4>
+        </mat-card>
+
+    </div>
+</div>

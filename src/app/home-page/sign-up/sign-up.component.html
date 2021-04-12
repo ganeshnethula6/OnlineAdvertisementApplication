@@ -1,0 +1,95 @@
+<mat-card class="image-container">
+    <mat-card class="sign-container">
+        <mat-card-header class="header">
+            <mat-card-title>Sign up</mat-card-title>
+
+        </mat-card-header>
+        <form class="example-form" [formGroup]="userRegistrationForm" (ngSubmit)="onSubmit()">
+
+
+            <mat-card-content>
+
+                <table class="example-full-width" cellspacing="5">
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>First name</mat-label>
+                                <input matInput id='firstName' name="firstName" formControlName="firstName" [(ngModel)]="model.firstName">
+                                <mat-hint>not contain special characters</mat-hint>
+                                <mat-error *ngIf="firstName?.hasError('required')"> required</mat-error>
+                                <mat-error *ngIf="firstName?.hasError('pattern')"> remove special characters and numbers</mat-error>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Last Name</mat-label>
+                                <input matInput placeholder="enter the last name" id='lastName' name='lastName' #lastName formControlName="lastName" [(ngModel)]="model.lastName">
+                                <mat-hint>optional</mat-hint>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- <mat-form-field class="example-full-width">
+                            <mat-label>Role Type</mat-label>
+                            <mat-select formControlName="roleType" [(ngModel)]="model.roleType">
+                                <mat-option [value]="role.roleValue" *ngFor="let role of RoleType">
+                                    {{role.roleName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field> -->
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Role Type</mat-label>
+                            <input matInput type="text" id="roleType" disabled value="viewer">
+
+                        </mat-form-field>
+
+                    </tr>
+                    <tr>
+
+                        <mat-radio-group class="example-radio-group" id="gender" name="gender" formControlName="gender" [(ngModel)]="model.gender">
+                            <mat-radio-button class="gender-field " *ngFor="let gender of genders" [value]="gender">
+                                {{gender}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+
+                        <mat-error *ngIf="gender?.hasError('required')"> required</mat-error>
+                    </tr>
+                    <tr>
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="date" placeholder="Date of birth" id="dob" name="dob" formControlName="dob" [(ngModel)]="model.dob">
+                        </mat-form-field>
+                    </tr>
+                    <tr>
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="number" placeholder="Mobile Number" formControlName="mobileNumber" [(ngModel)]="model.mobileNumber">
+                        </mat-form-field>
+                    </tr>
+                    <tr>
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="email" placeholder="Email" formControlName="emailId" [(ngModel)]="model.emailId">
+                        </mat-form-field>
+                    </tr>
+                    <tr>
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="password" placeholder="enter password" formControlName="password" [(ngModel)]="model.password">
+                        </mat-form-field>
+                    </tr>
+                    <tr>
+                        <mat-form-field class="example-full-width">
+                            <input matInput type="password" placeholder="confirm password" formControlName="confirmPassword" [errorStateMatcher]="matcher" [(ngModel)]="confirmpsw">
+                        </mat-form-field>
+                        <mat-error *ngIf="confirmPassword?.hasError('notSame')">
+                            Passwords do not match
+                        </mat-error>
+                    </tr>
+                </table>
+            </mat-card-content>
+
+            <button mat-raised-button color="warn" class="btn-block" type="submit" [disabled]="!userRegistrationForm.valid">Register</button>
+
+        </form>
+        <div class="text-danger danger" align=end>
+            <p (click)="existingUser()">Existing user? login here</p>
+        </div>
+    </mat-card>
+</mat-card>

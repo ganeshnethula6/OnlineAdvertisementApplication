@@ -1,0 +1,135 @@
+.container {
+    padding: 0px;
+}
+
+.Header {
+    background-color: white;
+    text-align: start;
+    font-size: 35px;
+}
+
+.header-first {
+    width: 30%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    text-align: left;
+    padding-left: 40px;
+    font-weight: bold;
+}
+
+.Header-title {
+    text-align: center;
+    width: 40%;
+}
+
+.Header-profile {
+    text-align: end;
+    width: 30%;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+    height: 100%px;
+}
+
+.column.side {
+    width: 20%;
+    background-color: #ccc;
+}
+
+.column.middle {
+    padding: 50px;
+    width: 60%;
+    background-color: rgb(104, 170, 255);
+}
+
+.row:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.example-card {
+    max-width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.example-card:hover {
+    border: 1px outset rgb(38, 0, 255);
+    /* text-shadow: 1px 1px 2px white, 0 0 10px blue, 0 0 10px rgb(131, 131, 131); */
+    text-shadow: 0 rgb(0, 151, 221);
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.header-subtitle {
+    color: black;
+}
+
+.subtitles {
+    text-transform: capitalize;
+}
+
+.subtitles:hover {
+    text-transform: capitalize;
+    text-shadow: 3px;
+    color: rgba(32, 129, 219, 0.904);
+}
+
+.show-comments-link {
+    color: blue;
+    text-decoration: underline;
+}
+
+.show-comments-link:hover {
+    color: rgb(0, 140, 255);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.comment-msg-header {
+    color: rgb(0, 151, 221);
+    text-decoration: underline;
+    text-transform: capitalize;
+    text-shadow: 3px;
+    text-indent: 5px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    margin-right: 5px;
+}
+
+.comment-msg {
+    color: black;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-shadow: none;
+    text-indent: 5px;
+    font-weight: lighter;
+    text-indent: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.nav-item {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.media i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: #eee;
+}

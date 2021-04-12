@@ -1,0 +1,46 @@
+<div class="client-dashboard">
+    <mat-card class="mat-client-dashboard">
+        <mat-card class="client-header">
+            <mat-card-title class="title">
+                Admin Dashboard
+            </mat-card-title>
+        </mat-card>
+        <div class="menu-btn-group">
+            <button color="primary" style="margin-right: 10px;" mat-icon-button (click)="openProfile()" matTooltip="profile" class="profile-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>person</mat-icon>
+            </button>
+            <button class="menu-btn-group-button" mat-raised-button color="warn" [matMenuTriggerFor]="menu">
+          create new
+          <i class='fas fa-caret-down'></i>
+          <i class="ri-arrow-down-s-line"></i>
+        </button>
+            <mat-menu #menu='matMenu'>
+                <button mat-menu-item (click)="createNewUser()"> Create new User</button>
+                <button mat-menu-item (click)="createNewAd()"> Create new Promotion</button>
+            </mat-menu>
+        </div>
+        <mat-tab-group mat-align-tabs="start" disabledRipple='true' animationDuration='0ms' backgroundColor="primary" class="mat-tab-group">
+            <mat-tab class="mat-tab">
+                <ng-template mat-tab-label> Users List</ng-template>
+
+                <mat-card class="client-records">
+                    <ag-grid-angular class="ag-theme-alpine" [rowData]="rowData " [columnDefs]="columnDefs" rowSelection="single" [pagination]="true" [paginationPageSize]="5" (gridReady)="onGridReady($event)" [frameworkComponents]="frameworkComponents"></ag-grid-angular>
+
+                </mat-card>
+            </mat-tab>
+            <mat-tab class="mat-tab">
+                <ng-template mat-tab-label>Promotions</ng-template>
+
+                <mat-card class="client-notifications">
+                    <ag-grid-angular class="ag-theme-alpine" [rowData]="promotionRowData " [columnDefs]="promotionColumnDefs" rowSelection="single" [pagination]="true" [paginationPageSize]="5" [frameworkComponents]="frameworkComponents"></ag-grid-angular>
+
+                </mat-card>
+            </mat-tab>
+            <mat-tab class="mat-tab">
+                <ng-template mat-tab-label>view post</ng-template>
+                <app-user-dashboard></app-user-dashboard>
+            </mat-tab>
+
+        </mat-tab-group>
+    </mat-card>
+</div>

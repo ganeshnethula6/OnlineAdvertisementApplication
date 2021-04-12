@@ -1,0 +1,22 @@
+.profile-header {
+    text-align: center;
+}
+
+.fas.fa-user-alt {
+    color: blue;
+    text-align: center;
+    font-size: 40px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.action-btn :hover {
+    background-color: rgba(61, 174, 250, 0.932);
+    color: white;
+}
+
+span {
+    margin-left: 20px;
+    font-family: serif;
+    color: rgb(0, 162, 255);
+    font-weight: bold;
+}

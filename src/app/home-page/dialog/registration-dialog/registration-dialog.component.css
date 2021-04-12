@@ -1,0 +1,44 @@
+.header {
+    background-color: rgb(70, 70, 255);
+    height: 50px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.text-danger {
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+mat-form-field {
+    margin: 10px;
+}
+
+.navigate-next {
+    border: solid royalblue 2px;
+    background-color: white;
+    color: royalblue;
+}
+
+.navigate-next:hover {
+    border: solid white 2px;
+    background-color: royalblue;
+    color: white;
+}
+
+.step {
+    /* border: solid rgba(0, 0, 0, 0.383) 0.5px; */
+    padding: 5px;
+}
+
+mat-step {
+    background-color: rgba(128, 128, 128, 0.671);
+    border: solid rgba(75, 75, 77, 0.657) 2px;
+    color: black;
+}
+
+mat-step:hover {
+    background-color: rgba(128, 128, 128, 0.924);
+    border: solid rgba(23, 23, 24, 0.979) 2px;
+    color: black;
+}

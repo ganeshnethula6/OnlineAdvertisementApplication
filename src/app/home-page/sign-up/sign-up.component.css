@@ -1,0 +1,23 @@
+.sign-container {
+    width: 600px;
+    margin-left: 300px;
+    position: relative;
+}
+
+.image-container {
+    margin: 20px;
+    background-color: #eee;
+    background-image: url("https://dsim.in/blog/wp-content/uploads/2017/12/NativeAd-957x560.png");
+    height: 100%;
+}
+
+.header {
+    background-color: rgb(70, 70, 255);
+    height: 50px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.text-danger {
+    cursor: pointer;
+}

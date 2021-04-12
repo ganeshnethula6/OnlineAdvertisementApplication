@@ -1,0 +1,20 @@
+<mat-card class="profile">
+    <div class="profile-header">
+        <i class="fas fa-user-alt"></i>
+        <h4>User Information</h4>
+    </div>
+    <mat-divider>
+    </mat-divider>
+    <div class="profile-info">
+        <p>User ID: <span>{{this.data.userId}}</span></p>
+        <p>User Role: <span>{{this.data.roleType}}</span></p>
+        <p>Name: <span>{{this.userDetail.firstName}} {{this.userDetail.lastName}}</span></p>
+        <p>Gender:<span>{{this.userDetail.gender}}</span></p>
+        <p>Date of Birth:<span>{{this.userDetail.dob}}</span></p>
+        <p>Mobile Number:<span>{{this.userDetail.mobileNumber}}</span></p>
+        <p>Email ID:<span>{{this.userDetail.emailId}}</span></p>
+    </div>
+    <div class="action-btn" align="end">
+        <button mat-stroked-button [mat-dialog-close] color="primary">close</button>
+    </div>
+</mat-card>

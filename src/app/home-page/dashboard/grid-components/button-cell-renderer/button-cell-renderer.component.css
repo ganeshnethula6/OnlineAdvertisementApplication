@@ -1,0 +1,14 @@
+.btn-delete {
+    color: white;
+    background-color: red;
+    /* height: 30px;
+    width: 60px; */
+    display: flex;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    position: fixed;
+    align-items: center;
+}

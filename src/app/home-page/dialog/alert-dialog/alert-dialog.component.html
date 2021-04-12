@@ -1,0 +1,15 @@
+<mat-card class="header">
+    <p *ngIf="registerErrorMsg">{{registerErrorMsg}}</p>
+    <p *ngIf="registerSuccessMsg">{{registerSuccessMsg}}</p>
+    <p *ngIf="loginErrorMsg">{{loginErrorMsg}}</p>
+    <p *ngIf="loginSuccessMsg">{{loginSuccessMsg}}</p>
+    <p *ngIf="deleteExistingUserMsg">{{deleteExistingUserMsg}}</p>
+    <p *ngIf="logOutMsg">{{logOutMsg}}</p>
+    <p *ngIf="updateExistingUserMsg">{{updateExistingUserMsg}}</p>
+
+
+    <mat-dialog-actions align="end">
+        <button mat-stroked-button *ngIf="deleteExistingUserMsg||updateExistingUserMsg||logOutMsg" color="primary" (click)="onCancel()">No</button>
+        <button mat-flat-button color="primary" (click)="onSubmit()">Yes</button>
+    </mat-dialog-actions>
+</mat-card>
